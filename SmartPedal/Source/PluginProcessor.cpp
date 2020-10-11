@@ -27,6 +27,12 @@ SmartPedalAudioProcessor::SmartPedalAudioProcessor()
 #endif
 {
     addDirectory(currentDirectory);
+    String path = String{"/Users/"} + String{getenv("USER")} + "/.vst3/SmartPedal.vst3/Contents/";
+    if (File{path}.exists())
+        addDirectory(path);
+    path = String{"/home/"} + String{getenv("USER")} + "/.vst3/SmartPedal.vst3/Contents/";
+    if (File{path}.exists())
+        addDirectory(path);
 }
 
 SmartPedalAudioProcessor::~SmartPedalAudioProcessor()
